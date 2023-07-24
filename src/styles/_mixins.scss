@@ -1,0 +1,9 @@
+@mixin flex-align-center{
+  align-items: center;
+}
+
+@mixin font-style($size, $style){
+  font-size: $size;
+  line-height: $size * 1.5;
+  font-style: $style;
+}

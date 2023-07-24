@@ -1,0 +1,40 @@
+@import '../../../styles/reset';
+@import '../../../styles/general';
+@import '../../../styles/mixins';
+
+.footer {
+  background-color: $dark-color;
+  padding: 10px;
+
+  &Description {
+    margin-left: 10px;
+    @include font-style(14px, normal);
+    transition: font-size 0.5s ease;
+  }
+
+  &Link {
+    text-decoration: none;
+    color: $accent-color;
+  }
+}
+
+.containerFooter {
+  @include flex-align-center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 416px) {
+  .footer {
+    &Logo {
+      width: 75px;
+      height: 75px;
+      transition: width 0.5s ease;
+    }
+
+    &Description,
+    &Link {
+      @include font-style(18px, normal);
+      transition: font-size 0.5s ease;
+    }
+  }
+}

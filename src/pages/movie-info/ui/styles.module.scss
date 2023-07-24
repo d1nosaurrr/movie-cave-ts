@@ -1,0 +1,177 @@
+@import 'styles/style';
+
+.header {
+  @include flex-align-center;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: 7px;
+
+  @media screen and (min-width: 400px) {
+    flex-direction: row;
+  }
+}
+
+.body {
+  @include flex-align-center;
+  flex-direction: column;
+  gap: 20px;
+  @media screen and (min-width: 767px) {
+    flex-direction: row;
+  }
+}
+
+.logo {
+  max-width: 300px;
+  min-width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+
+  @media screen and (min-width: 767px) {
+    align-self: start;
+
+  }
+}
+
+.item {
+  min-width: 280px;
+  max-width: 100%;
+  @include font-style(14px, normal);
+
+  &Title {
+    color: $accent-color;
+  }
+}
+
+
+.productionInfo {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 20px;
+  align-items: start;
+  align-self: start;
+  flex-direction: column;
+
+}
+
+.movieSimilar {
+    margin-top: 20px;
+
+    &Title {
+      @include font-style(20px, normal);
+  }
+}
+
+#fivestars {
+  fill: $dark-light-color;
+}
+
+.rating {
+  width: auto;
+
+  @include flex-align-center;
+  flex-direction: column;
+
+  &Vote {
+    margin-top: 5px;
+    //display: none;
+    @include font-style(14px, normal);
+
+    @media screen and (min-width: 600px) {
+      display: block;
+    }
+  }
+}
+
+.star {
+  &Outer {
+    display: inline-block;
+  }
+
+  &Outer::before,
+  &Inner::before {
+    content: '\2605 \2605 \2605 \2605 \2605';
+    font-size: 18px;
+  }
+
+  &Inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+
+    &::before {
+      color: #f8ce0b;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.moviePreview {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  min-height: 150px;
+  max-height: 250px;
+  width: 100%;
+  display: flex;
+  overflow-y: scroll;
+}
+
+.preview {
+  &Item {
+    display: inline-block;
+    min-width: auto;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+  }
+
+  &Video,
+  &Img {
+    object-fit: contain;
+    width: auto;
+    height: 240px;
+  }
+}
+
+.movieTitle {
+  margin: 5px 0;
+  @include font-style(18px, normal);
+
+  &Original {
+    @include font-style(16px, italic);
+    color: $gray-color;
+
+  }
+}
+
+
+#fullpage {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat no-repeat;
+}
+
+.backArrow {
+  width: 18px;
+  height: auto;
+
+  &:focus,
+  &:hover {
+    color: $accent-color;
+  }
+}

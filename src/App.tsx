@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+
+import { Header } from './pages/header';
+import { Main } from './pages/main';
+import { MovieInfo } from './pages/movie-info';
+import { Footer } from './pages/footer';
+import { Page404 } from './pages/page404';
+
+import { Loader } from './components/loader';
+// @ts-ignore
+import { Wrapper } from './components/wrapper';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Main>
+        <Routes>
+          <Route path='/' element={<Wrapper />} />
+          <Route path='/movie/:id' element={<MovieInfo />} />
+          <Route path='/search/' element={<Wrapper />} />
+          <Route path='*' element={<Page404 />} />
+        </Routes>
+      </Main>
+      <Footer />
+    </>
   );
 }
 

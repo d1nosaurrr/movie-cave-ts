@@ -1,0 +1,69 @@
+@import 'styles/general';
+@import 'styles/mixins';
+
+.notFound {
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+}
+
+.tittle {
+  color: $light-color;
+  @include font-style(8.5rem, normal);
+  margin: 10px 0;
+  white-space: nowrap;
+
+  @media screen and (min-width: 767px) {
+    @include font-style(12.5rem, normal);
+
+  }
+}
+
+.ghost {
+  margin: 0 5px;
+  animation: spooky 2s alternate infinite linear;
+  color: $accent-color;
+  display: inline-block;
+}
+
+.description {
+  color: $light-color;
+  margin-bottom: 15px;
+  @include font-style(20px, normal);
+
+  @media screen and (min-width: 767px) {
+    @include font-style(45px, normal);
+  }
+}
+
+.link {
+  color: $accent-color;
+
+  &:visited {
+    color: $accent-color;
+  }
+
+  &:focus,
+  &:hover {
+    color: #674800;
+  }
+}
+
+
+p {
+  color: $light-color;
+  margin-top: 0;
+}
+
+@keyframes spooky {
+  from {
+    transform: translatey(.15em) scaley(.95);
+  }
+
+  to {
+    transform: translatey(-.15em);
+  }
+}
